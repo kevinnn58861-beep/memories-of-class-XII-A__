@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XII A BEST CLASS</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;800&family=Space+Grotesk:wght@500;700&display=swap');
+
+        :root {
+            --bg: #02040a;
+            --accent: #00d2ff;
+            --glass: rgba(255, 255, 255, 0.02);
+            --border: rgba(255, 255, 255, 0.08);
+            --text: #ffffff;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            background-color: var(--bg); 
+            color: var(--text); 
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        /* Animated Background */
+        .bg-glow {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: radial-gradient(circle at 50% 50%, #0c152e 0%, #02040a 100%);
+            z-index: -1;
+        }
+
+        /* Layar Pembuka Luxury */
+        #pintu-masuk {
+            position: fixed; inset: 0; background: var(--bg);
+            z-index: 10000; display: flex; justify-content: center; align-items: center;
+            transition: 1s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .intro-content { text-align: center; }
+        .intro-content h1 { 
+            font-family: 'Space Grotesk', sans-serif; font-size: 5rem; 
+            letter-spacing: 15px; margin-bottom: 20px;
+            background: linear-gradient(to bottom, #fff 30%, #444);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+        }
+        .btn-masuk {
+            padding: 20px 60px; background: none; border: 1px solid var(--border);
+            color: #fff; border-radius: 100px; cursor: pointer;
+            letter-spacing: 5px; font-size: 0.8rem; transition: 0.5s;
+        }
+        .btn-masuk:hover { background: #fff; color: #000; box-shadow: 0 0 50px rgba(255,255,255,0.2); }
+
+        /* Navigation */
+        .hero { padding: 100px 20px 40px; text-align: center; }
+        .hero h1 { font-family: 'Space Grotesk', sans-serif; font-size: 3.5rem; font-weight: 700; margin-bottom: 10px; }
+        .hero p { color: var(--accent); letter-spacing: 8px; font-size: 0.7rem; font-weight: 800; }
+
+        .audio-container {
+            max-width: 400px; margin: 30px auto; background: var(--glass);
+            border: 1px solid var(--border); padding: 15px; border-radius: 20px;
+            backdrop-filter: blur(20px);
+        }
+        audio { width: 100%; height: 30px; filter: invert(1); opacity: 0.5; }
+
+        .nav-tabs { 
+            display: flex; justify-content: center; gap: 15px; margin-bottom: 50px; 
+            position: sticky; top: 20px; z-index: 100;
+        }
+        .tab-link {
+            padding: 15px 35px; background: rgba(10, 10, 10, 0.8); border: 1px solid var(--border);
+            color: #666; border-radius: 100px; cursor: pointer; transition: 0.3s;
+            backdrop-filter: blur(10px); font-weight: bold; font-size: 0.8rem;
+        }
+        .tab-link.active { color: var(--accent); border-color: var(--accent); box-shadow: 0 0 20px rgba(0,210,255,0.2); }
+
+        /* Grid Design */
+        .content-section { max-width: 1300px; margin: 0 auto; padding: 0 20px 100px; display: none; }
+        .grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); 
+            gap: 15px; 
+        }
+        .item { 
+            background: var(--glass); border-radius: 12px; overflow: hidden; 
+            aspect-ratio: 1/1; border: 1px solid var(--border);
+            transition: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .item:hover { transform: translateY(-10px) scale(1.02); border-color: var(--accent); box-shadow: 0 20px 40px rgba(0,0,0,0.5); }
+        img, video { width: 100%; height: 100%; object-fit: cover; }
+
+        footer { text-align: center; padding: 100px 20px; opacity: 0.2; font-size: 0.7rem; letter-spacing: 2px; }
+
+        @media (max-width: 768px) {
+            .intro-content h1 { font-size: 2.5rem; letter-spacing: 8px; }
+            .grid { grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="bg-glow"></div>
+
+    <div id="pintu-masuk">
+        <div class="intro-content">
+            <h1>XII A</h1>
+            <button class="btn-masuk" onclick="init()">UNLOCK ARCHIVE</button>
+        </div>
+    </div>
+
+    <header class="hero">
+        <p>XII A BEST CLASS</p>
+        <h1>MEMORIES</h1>
+        
+        <div class="audio-container">
+            <p style="font-size: 10px; margin-bottom: 8px; opacity: 0.5;">SOUNDTRACK: PERUNGGU - 33x</p>
+            <audio id="player" controls loop>
+                <source src="perunggu.mp3.mp3" type="audio/mpeg">
+            </audio>
+        </div>
+    </header>
+
+    <div class="nav-tabs">
+        <button class="tab-link" id="t-foto" onclick="openTab('foto')">GALLERY</button>
+        <button class="tab-link" id="t-video" onclick="openTab('video')">VIDEO</button>
+    </div>
+
+    <div id="foto" class="content-section">
+        <div class="grid">
+            <div class="item"><img src="xiia-foto1.jpg" loading="lazy"></div>
+            <div class="item"><img src="xiia-foto2.jpg" loading="lazy"></div>
+            <div class="item"><img src="xiia-foto3.jpg" loading="lazy"></div>
+            <div class="item"><img src="xiia-foto4.jpg" loading="lazy"></div>
+            <div class="item"><img src="xiia-foto5.jpg" loading="lazy"></div>
+            <div class="item"><img src="xiia-foto6.jpg" loading="lazy"></div>
+            <div class="item"><img src="xiia-foto7.jpg" loading="lazy"></div>
+            <div class="item"><img src="xiia-foto8.jpg" loading="lazy"></div>
+            <div class="item"><img src="xiia-foto9.jpg" loading="lazy"></div>
+            <div class="item"><img src="xiia-foto10.jpg" loading="lazy"></div>
+            <div class="item"><img src="xiia-foto11.jpg" loading="lazy"></div>
+            <div class="item"><img src="xiia-foto12.jpg" loading="lazy"></div>
+            <div class="item"><img src="xiia-foto13.jpg" loading="lazy"></div>
+            <div class="item"><img src="xiia-foto14.jpg" loading="lazy"></div>
+            <div class="item"><img src="xiia-foto15.jpg" loading="lazy"></div>
+            <div class="item"><img src="xiia-foto16.jpg" loading="lazy"></div>
+            <div class="item"><img src="xiia-foto17.jpg" loading="lazy"></div>
+            <div class="item"><img src="xiia-foto18.jpg" loading="lazy"></div>
+            <div class="item"><img src="xiia-foto19.jpg" loading="lazy"></div>
+            <div class="item"><img src="xiia-foto20.jpg" loading="lazy"></div>
+            <div class="item"><img src="xiia-foto21.jpg" loading="lazy"></div>
+            <div class="item"><img src="xiia-foto22.jpg" loading="lazy"></div>
+            <div class="item"><img src="xiia-foto23.jpg" loading="lazy"></div>
+            <div class="item"><img src="xiia-foto24.jpg" loading="lazy"></div>
+            <div class="item"><img src="xiia-foto25.jpg" loading="lazy"></div>
+            <div class="item"><img src="xiia-foto26.jpg" loading="lazy"></div>
+            <div class="item"><img src="xiia-foto27.jpg" loading="lazy"></div>
+            <div class="item"><img src="xiia-foto28.jpg" loading="lazy"></div>
+            <div class="item"><img src="xiia-foto29.jpg" loading="lazy"></div>
+            <div class="item"><img src="xiia-foto30.jpg" loading="lazy"></div>
+            <div class="item"><img src="xiia-foto31.jpg" loading="lazy"></div>
+            <div class="item"><img src="xiia-foto32.jpg" loading="lazy"></div>
+            <div class="item"><img src="xiia-foto33.jpg" loading="lazy"></div>
+            <div class="item"><img src="xiia-foto34.jpg" loading="lazy"></div>
+            <div class="item"><img src="xiia-foto35.jpg" loading="lazy"></div>
+            <div class="item"><img src="xiia-foto36.jpg" loading="lazy"></div>
+            <div class="item"><img src="xiia-foto37.jpg" loading="lazy"></div>
+            <div class="item"><img src="xiia-foto38.jpg" loading="lazy"></div>
+            <div class="item"><img src="xiia-foto39.jpg" loading="lazy"></div>
+            <div class="item"><img src="xiia-foto40.jpg" loading="lazy"></div>
+            <div class="item"><img src="xiia-foto41.jpg" loading="lazy"></div>
+            <div class="item"><img src="xiia-foto42.jpg" loading="lazy"></div>
+            <div class="item"><img src="xiia-foto43.jpg" loading="lazy"></div>
+            <div class="item"><img src="xiia-foto44.jpg" loading="lazy"></div>
+            <div class="item"><img src="xiia-foto45.jpg" loading="lazy"></div>
+            <div class="item"><img src="xiia-foto46.jpg" loading="lazy"></div>
+            <div class="item"><img src="xiia-foto47.jpg" loading="lazy"></div>
+            <div class="item"><img src="xiia-foto48.jpg" loading="lazy"></div>
+            <div class="item"><img src="xiia-foto49.jpg" loading="lazy"></div>
+            <div class="item"><img src="xiia-foto50.jpg" loading="lazy"></div>
+            <div class="item"><img src="xiia-foto51.jpg" loading="lazy"></div>
+            <div class="item"><img src="xiia-foto52.jpg" loading="lazy"></div>
+            <div class="item"><img src="xiia-foto53.jpg" loading="lazy"></div>
+            <div class="item"><img src="xiia-foto54.jpg" loading="lazy"></div>
+            <div class="item"><img src="xiia-foto55.jpg" loading="lazy"></div>
+            <div class="item"><img src="xiia-foto56.jpg" loading="lazy"></div>
+            <div class="item"><img src="xiia-foto57.jpg" loading="lazy"></div>
+            <div class="item"><img src="xiia-foto58.jpg" loading="lazy"></div>
+            <div class="item"><img src="xiia-foto59.jpg" loading="lazy"></div>
+            <div class="item"><img src="xiia-foto60.jpg" loading="lazy"></div>
+            <div class="item"><img src="xiia-foto61.jpg" loading="lazy"></div>
+            <div class="item"><img src="xiia-foto62.jpg" loading="lazy"></div>
+            <div class="item"><img src="xiia-foto63.jpg" loading="lazy"></div>
+            <div class="item"><img src="xiia-foto64.jpg" loading="lazy"></div>
+            <div class="item"><img src="xiia-foto65.jpg" loading="lazy"></div>
+            <div class="item"><img src="xiia-foto66.jpg" loading="lazy"></div>
+            <div class="item"><img src="xiia-foto67.jpg" loading="lazy"></div>
+            <div class="item"><img src="xiia-foto68.jpg" loading="lazy"></div>
+            <div class="item"><img src="xiia-foto69.jpg" loading="lazy"></div>
+            <div class="item"><img src="xiia-foto70.jpg" loading="lazy"></div>
+            <div class="item"><img src="xiia-foto71.jpg" loading="lazy"></div>
+            <div class="item"><img src="xiia-foto72.jpg" loading="lazy"></div>
+            <div class="item"><img src="xiia-foto73.jpg" loading="lazy"></div>
+            <div class="item"><img src="xiia-foto74.jpg" loading="lazy"></div>
+            <div class="item"><img src="xiia-foto75.jpg" loading="lazy"></div>
+            <div class="item"><img src="xiia-foto76.jpg" loading="lazy"></div>
+            <div class="item"><img src="xiia-foto77.jpg" loading="lazy"></div>
+            <div class="item"><img src="xiia-foto78.jpg" loading="lazy"></div>
+            <div class="item"><img src="xiia-foto79.jpg" loading="lazy"></div>
+            <div class="item"><img src="xiia-foto80.jpg" loading="lazy"></div>
+            <div class="item"><img src="xiia-foto81.jpg" loading="lazy"></div>
+            <div class="item"><img src="xiia-foto82.jpg" loading="lazy"></div>
+            <div class="item"><img src="xiia-foto83.jpg" loading="lazy"></div>
+        </div>
+    </div>
+
+    <div id="video" class="content-section">
+        <div class="grid">
+            <div class="item"><video src="xiia-video1.mp4" controls playsinline></video></div>
+            <div class="item"><video src="xiia-video2.mp4" controls playsinline></video></div>
+            <div class="item"><video src="xiia-video3.mp4" controls playsinline></video></div>
+            <div class="item"><video src="xiia-video4.mp4" controls playsinline></video></div>
+            <div class="item"><video src="xiia-video5.mp4" controls playsinline></video></div>
+            <div class="item"><video src="xiia-video6.mp4" controls playsinline></video></div>
+            <div class="item"><video src="xiia-video7.mp4" controls playsinline></video></div>
+            <div class="item"><video src="xiia-video8.mp4" controls playsinline></video></div>
+            <div class="item"><video src="xiia-video9.mp4" controls playsinline></video></div>
+            <div class="item"><video src="xiia-video10.mp4" controls playsinline></video></div>
+            <div class="item"><video src="xiia-video11.mp4" controls playsinline></video></div>
+            <div class="item"><video src="xiia-video12.mp4" controls playsinline></video></div>
+            <div class="item"><video src="xiia-video13.mp4" controls playsinline></video></div>
+            <div class="item"><video src="xiia-video14.mp4" controls playsinline></video></div>
+            <div class="item"><video src="xiia-video15.mp4" controls playsinline></video></div>
+            <div class="item"><video src="xiia-video16.mp4" controls playsinline></video></div>
+            <div class="item"><video src="xiia-video17.mp4" controls playsinline></video></div>
+            <div class="item"><video src="xiia-video18.mp4" controls playsinline></video></div>
+            <div class="item"><video src="xiia-video19.mp4" controls playsinline></video></div>
+            <div class="item"><video src="xiia-video20.mp4" controls playsinline></video></div>
+            <div class="item"><video src="xiia-video21.mp4" controls playsinline></video></div>
+            <div class="item"><video src="xiia-video22.mp4" controls playsinline></video></div>
+            <div class="item"><video src="xiia-video23.mp4" controls playsinline></video></div>
+            <div class="item"><video src="xiia-video24.mp4" controls playsinline></video></div>
+            <div class="item"><video src="xiia-video25.mp4" controls playsinline></video></div>
+            <div class="item"><video src="xiia-video26.mp4" controls playsinline></video></div>
+            <div class="item"><video src="xiia-video27.mp4" controls playsinline></video></div>
+            <div class="item"><video src="xiia-video28.mp4" controls playsinline></video></div>
+            <div class="item"><video src="xiia-video29.mp4" controls playsinline></video></div>
+            <div class="item"><video src="xiia-video30.mp4" controls playsinline></video></div>
+            <div class="item"><video src="xiia-video31.mp4" controls playsinline></video></div>
+            <div class="item"><video src="xiia-video32.mp4" controls playsinline></video></div>
+            <div class="item"><video src="xiia-video33.mp4" controls playsinline></video></div>
+        </div>
+    </div>
+
+    <footer>
+        XII A BEST CLASS - GEN 40 FORTY GENERATION
+    </footer>
+
+    <script>
+        function init() {
+            const intro = document.getElementById('pintu-masuk');
+            intro.style.opacity = '0';
+            setTimeout(() => {
+                intro.style.display = 'none';
+                openTab('foto');
+            }, 1000);
+            document.getElementById('player').play();
+        }
+
+        function openTab(tabName) {
+            document.querySelectorAll('.content-section').forEach(s => s.style.display = 'none');
+            document.querySelectorAll('.tab-link').forEach(t => t.classList.remove('active'));
+            
+            document.getElementById(tabName).style.display = 'block';
+            document.getElementById('t-' + tabName).classList.add('active');
+        }
+    </script>
+</body>
+</html>
